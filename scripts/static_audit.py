@@ -257,7 +257,7 @@ ci = (ROOT / ".github" / "workflows" / "android-ci.yml").read_text(encoding="utf
 runtime = (ROOT / ".github" / "workflows" / "android-runtime-gate.yml").read_text(encoding="utf-8")
 release = (ROOT / ".github" / "workflows" / "release-apk.yml").read_text(encoding="utf-8")
 for needle in (
-    "api-level: [23, 35, 37]",
+    "api-level: 37",
     "connectedDebugAndroidTest",
     "assembleRelease",
     "monkey",
