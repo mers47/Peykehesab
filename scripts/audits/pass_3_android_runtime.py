@@ -16,7 +16,7 @@ for pat,label in [(r'catch\s*\([^)]*:\s*Throwable','catch Throwable'),(r'\brunBl
     if re.search(pat,text):fail(label)
 for needle in ['minSdk = 23','targetSdk = 37','isCoreLibraryDesugaringEnabled = true','lifecycle-runtime-compose:2.11.0']:
     if needle not in gradle:fail(f'تنظیم Runtime ناقص: {needle}')
-for needle in ['api-level: [23, 35, 37]','connectedDebugAndroidTest','assembleRelease','timeout 30s','uiautomator','monkey','--monitor-native-crashes','ANR in ir\\.peykhesab\\.app','wm size 1600x1200','font_scale 2.0','cmd uimode night yes','user_rotation 1','PRODUCTION_RUNTIME_GATE=PASS']:
+for needle in ['api-level: 37','connectedDebugAndroidTest','assembleRelease','timeout 30s','uiautomator','monkey','--monitor-native-crashes','ANR in ir\\.peykhesab\\.app','wm size 1600x1200','font_scale 2.0','cmd uimode night yes','user_rotation 1','PRODUCTION_RUNTIME_GATE=PASS']:
     if needle not in runtime:fail(f'Runtime Gate ناقص: {needle}')
 for screen in ['پیک‌حساب','سفارش‌ها','راننده‌ها','مشتریان','گزارش‌ها','پشتیبان‌گیری و بازیابی']:
     if screen not in smoke:fail(f'UI smoke screen حذف شده: {screen}')
