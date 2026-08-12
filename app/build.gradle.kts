@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "ir.peykhesab.app"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ir.peykhesab.app"
         minSdk = 23
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 4
         versionName = "1.3.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

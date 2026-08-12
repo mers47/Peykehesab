@@ -37,7 +37,7 @@ if not (ROOT/'scripts/source_manifest.py').is_file():
     fail('source_manifest.py حذف شده است')
 for needle in ['python3 scripts/five_pass_audit.py','testDebugUnitTest','lintRelease','analyzeReleaseR8Config','assembleRelease','ROOM_SCHEMA_OK','verify_apk.sh','needs: build-and-static-checks','android-runtime-gate.yml']:
     if needle not in ci:fail(f'CI ناقص: {needle}')
-for needle in ['api-level: [23, 35, 36]','connectedDebugAndroidTest','PRODUCTION_RUNTIME_GATE=PASS']:
+for needle in ['api-level: [23, 35, 37]','connectedDebugAndroidTest','PRODUCTION_RUNTIME_GATE=PASS']:
     if needle not in rt:fail(f'Runtime ناقص: {needle}')
 for needle in ['needs: runtime-gate','python3 scripts/five_pass_audit.py','python3 scripts/source_manifest.py','ANDROID_KEYSTORE_BASE64','analyzeReleaseR8Config','verify_apk.sh','PeykHesab-signed-universal-apk','PRODUCTION_PROOF.txt','FIVE_PASS_AUDIT=PASS','SOURCE_MANIFEST=YES']:
     if needle not in rel:fail(f'Release fail-closed ناقص: {needle}')
