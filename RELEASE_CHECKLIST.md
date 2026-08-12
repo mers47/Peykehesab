@@ -14,7 +14,7 @@
 - [ ] Release APK ساخته و امضا شده
 - [ ] Runtime API 23 PASS
 - [ ] Runtime API 35 PASS
-- [ ] Runtime API 37 PASS
+- [ ] Runtime API 36 PASS
 - [ ] Rotation PASS
 - [ ] Large screen/font 200%/dark mode PASS
 - [ ] Monkey 1000 events PASS

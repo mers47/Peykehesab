@@ -68,7 +68,7 @@ python3 scripts/five_pass_audit.py
 
 1. پاکیزگی/معماری: فایل موقت، Mock/Fake/Demo/TODO، API قدیمی، `!!`، کد بلااستفاده هدف‌گذاری‌شده و الگوهای خطرناک.
 2. حسابداری/داده: نوع پول، جمع exact، Transaction، قواعد تسویه، بکاپ/KDF و تست‌های یکپارچگی.
-3. Android Runtime: Lifecycle، Main Thread، API 23/35/37، Release R8، Launch، Rotation، Monkey و Crash/ANR gate.
+3. Android Runtime: Lifecycle، Main Thread، API 23/35/36، Release R8، Launch، Rotation، Monkey و Crash/ANR gate.
 4. UI/فارسی: `fa-IR`، RTL مستقل از زبان گوشی، Jalali snapshot، Rotation state و متن‌های قابل‌مشاهده.
 5. CI/Release: SHA pin کامل Actionها، least privilege، Dependency ثابت، Dependabot، Runtime dependency، امضا و Source Manifest.
 
@@ -77,7 +77,7 @@ python3 scripts/five_pass_audit.py
 سه Workflow داخل `.github/workflows` وجود دارد:
 
 - `android-ci.yml` — ممیزی‌ها، Unit Test، Lint، R8 و Build
-- `android-runtime-gate.yml` — تست واقعی Debug و Release روی API 23، 35 و 37
+- `android-runtime-gate.yml` — تست واقعی Debug و Release روی API 23، 35 و 36
 - `release-apk.yml` — فقط بعد از Runtime Gate، APK یونیورسال امضاشده و بسته شواهد را تولید می‌کند
 
 برای Release امضاشده چهار Secret لازم است:
