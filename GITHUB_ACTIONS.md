@@ -32,13 +32,13 @@ Keystore باید متعلق به خود شما باشد. فایل keystore دا
 
 ### Android Runtime Gate
 
-روی API 23، 35 و 37:
+روی API 23، 35 و 36:
 - `connectedDebugAndroidTest`
 - ساخت Release مینیمایز شده با کلید موقت CI
 - نصب و Launch Release
 - UI dump و Screenshot
 - Rotation/recreation
-- API 37: صفحه بزرگ + فونت ۲۰۰٪ + Dark Mode
+- API 36: صفحه بزرگ + فونت ۲۰۰٪ + Dark Mode
 - Monkey 1000 events
 - Crash/ANR log scan
 

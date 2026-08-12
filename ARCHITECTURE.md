@@ -52,8 +52,8 @@ Restore: read → decrypt/authenticate → decode → validate entire snapshot �
 ## Universal Android
 
 - minSdk 23
-- targetSdk 37
-- compileSdk 37
+- targetSdk 36
+- compileSdk 36
 - Core Library Desugaring
 - یک APK بدون ABI/density split
 - Resizable و بدون Orientation lock
@@ -61,6 +61,6 @@ Restore: read → decrypt/authenticate → decode → validate entire snapshot �
 
 ## Release architecture
 
-`5 audits → Unit/Lint/R8 → Room schema → Debug APK check → Runtime API 23/35/37 → signed universal Release → APK verifier → source manifest/evidence → artifact`
+`5 audits → Unit/Lint/R8 → Room schema → Debug APK check → Runtime API 23/35/36 → signed universal Release → APK verifier → source manifest/evidence → artifact`
 
 هر شکست قبل از Artifact نهایی Release را متوقف می‌کند.

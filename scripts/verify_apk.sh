@@ -33,8 +33,8 @@ grep -q "sdkVersion:'23'" <<<"$BADGING" || {
   echo "minSdk APK برابر 23 نیست" >&2
   exit 1
 }
-grep -q "targetSdkVersion:'37'" <<<"$BADGING" || {
-  echo "targetSdk APK برابر 37 نیست" >&2
+grep -q "targetSdkVersion:'36'" <<<"$BADGING" || {
+  echo "targetSdk APK برابر 36 نیست" >&2
   exit 1
 }
 

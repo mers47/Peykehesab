@@ -5,7 +5,7 @@
 ```text
 AUDIT_PASS_1_OK production_kotlin=22 junk=0 fake_markers=0 legacy_patterns=0
 AUDIT_PASS_2_OK money_long=1 exact_sum=1 transactions=1 backup_aes_gcm=1 kdf_sha256=1 integration_tests=1
-AUDIT_PASS_3_OK lifecycle=1 no_main_thread_db=1 runtime_api_23_35_37=1 release_monkey_anr=1 rotation_large_dark=1
+AUDIT_PASS_3_OK lifecycle=1 no_main_thread_db=1 runtime_api_23_35_36=1 release_monkey_anr=1 rotation_large_dark=1
 AUDIT_PASS_4_OK fa_IR=1 rtl=1 jalali_snapshot=1 adaptive=1 rotation_state=1 obvious_english_ui=0
 AUDIT_PASS_5_OK immutable_actions=1 least_privilege=1 checkout_credentials=0 gradle_cache=0 dynamic_versions=0 source_manifest=1 runtime_dependency=1 signed_release=1 dependabot=1
 FIVE_PASS_AUDIT_OK passed=5/5 same_source=1 release_blocking=1

@@ -11,7 +11,7 @@
 - Five independent audit passes: 5/5 PASS
 - Production Kotlin files audited: 22
 - Android permissions: 0
-- Universal config: API 23..37, no ABI/density splits
+- Universal config: API 23..36, no ABI/density splits
 - RTL/fa-IR gate: PASS
 - Exact-money/transaction/backup gate: PASS
 - CI immutable-action/least-privilege/dynamic-version gate: PASS
