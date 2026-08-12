@@ -2,7 +2,7 @@
 
 ## جمع‌بندی
 
-نسخه v5 روی همان سورسی که برای بسته نهایی استفاده می‌شود، پنج ممیزی مستقل Release-blocking و ممیزی ایستا را پاس کرده است. Markerهای Mock/Fake/Demo/TODO در Production صفر، Permissionها صفر و نسخه Android به‌صورت Universal API 23..36 تنظیم شده است.
+نسخه v5 روی همان سورسی که برای بسته نهایی استفاده می‌شود، پنج ممیزی مستقل Release-blocking و ممیزی ایستا را پاس کرده است. Markerهای Mock/Fake/Demo/TODO در Production صفر، Permissionها صفر و نسخه Android به‌صورت Universal API 23..37 تنظیم شده است.
 
 ## نقص‌های واقعی کشف‌شده در مسیر v3→v5
 
@@ -24,7 +24,7 @@
 
 ## شواهد محلی
 
-- `STATIC_AUDIT_OK kotlin=22 xml=35 permissions=0 api=23..36 universal=1 rtl=1`
+- `STATIC_AUDIT_OK kotlin=22 xml=35 permissions=0 api=23..37 universal=1 rtl=1`
 - `FIVE_PASS_AUDIT_OK passed=5/5 same_source=1 release_blocking=1`
 - `V5_CORE_PROOF_OK accounting=70 jalali_days=47847 kdf_vectors=3 overflow=blocked`
 - `JALALI_INTL_PROOF_OK days=47847 mismatches=0 range=1970-01-01..2100-12-31`

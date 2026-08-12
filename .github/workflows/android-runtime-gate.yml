@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api-level: [23, 35, 36]
+        api-level: [23, 35, 37]
     steps:
       - name: دریافت سورس
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -66,7 +66,7 @@ jobs:
           "$SDKMANAGER" \
             "platform-tools" \
             "emulator" \
-            "platforms;android-36" \
+            "platforms;android-37.0" \
             "build-tools;36.0.0" \
             "system-images;android-${{ matrix.api-level }};google_apis;x86_64"
           echo no | "$AVDMANAGER" create avd \
@@ -167,7 +167,7 @@ jobs:
           adb shell settings put system accelerometer_rotation 1
 
       - name: بررسی نمایش بزرگ و Resize روی API جدید
-        if: matrix.api-level == 36
+        if: matrix.api-level == 37
         shell: bash
         run: |
           set -Eeuo pipefail
@@ -184,8 +184,8 @@ jobs:
           timeout 20s adb shell uiautomator dump /sdcard/peykhesab-large.xml >/dev/null
           adb pull /sdcard/peykhesab-large.xml "$RUNNER_TEMP/peykhesab-large.xml" >/dev/null
           grep -q 'پیک‌حساب' "$RUNNER_TEMP/peykhesab-large.xml"
-          adb exec-out screencap -p > "$RUNNER_TEMP/large-api36.png"
-          test -s "$RUNNER_TEMP/large-api36.png"
+          adb exec-out screencap -p > "$RUNNER_TEMP/large-api37.png"
+          test -s "$RUNNER_TEMP/large-api37.png"
 
       - name: تست فشار Release و کنترل Crash و ANR
         shell: bash
@@ -249,5 +249,5 @@ jobs:
             ${{ runner.temp }}/peykhesab-large.xml
             ${{ runner.temp }}/launch-${{ matrix.api-level }}.png
             ${{ runner.temp }}/landscape-${{ matrix.api-level }}.png
-            ${{ runner.temp }}/large-api36.png
+            ${{ runner.temp }}/large-api37.png
             ${{ runner.temp }}/runtime-proof-${{ matrix.api-level }}.txt

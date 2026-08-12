@@ -165,13 +165,13 @@ for path in XMLS:
     except ET.ParseError as exc:
         fail(f"XML خراب: {path.relative_to(ROOT)}: {exc}")
 
-# 5) Build invariants for one universal APK, API 23..36 and desugaring.
+# 5) Build invariants for one universal APK, API 23..37 and desugaring.
 app_gradle = (ROOT / "app" / "build.gradle.kts").read_text(encoding="utf-8")
 root_gradle = (ROOT / "build.gradle.kts").read_text(encoding="utf-8")
 required_build_snippets = [
-    "compileSdk = 36",
+    "compileSdk = 37",
     "minSdk = 23",
-    "targetSdk = 36",
+    "targetSdk = 37",
     "isCoreLibraryDesugaringEnabled = true",
     'coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")',
     'androidTestImplementation("androidx.test:runner:1.7.0")',
@@ -257,7 +257,7 @@ ci = (ROOT / ".github" / "workflows" / "android-ci.yml").read_text(encoding="utf
 runtime = (ROOT / ".github" / "workflows" / "android-runtime-gate.yml").read_text(encoding="utf-8")
 release = (ROOT / ".github" / "workflows" / "release-apk.yml").read_text(encoding="utf-8")
 for needle in (
-    "api-level: [23, 35, 36]",
+    "api-level: [23, 35, 37]",
     "connectedDebugAndroidTest",
     "assembleRelease",
     "monkey",
@@ -345,5 +345,5 @@ if errors:
 print(
     "STATIC_AUDIT_OK "
     f"kotlin={len(KOTLIN)} xml={len(XMLS)} "
-    "permissions=0 api=23..36 universal=1 rtl=1"
+    "permissions=0 api=23..37 universal=1 rtl=1"
 )

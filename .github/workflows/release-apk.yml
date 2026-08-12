@@ -68,7 +68,7 @@ jobs:
           if [[ -z "$SDKMANAGER" ]]; then SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"; fi
           test -x "$SDKMANAGER"
           yes | "$SDKMANAGER" --licenses >/dev/null || true
-          "$SDKMANAGER" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+          "$SDKMANAGER" "platform-tools" "platforms;android-37.0" "build-tools;36.0.0"
 
       - name: اعتبارسنجی Secretهای امضای Release
         shell: bash
@@ -145,9 +145,9 @@ jobs:
             echo "COMMIT=${GITHUB_SHA}"
             echo "RUN_ID=${GITHUB_RUN_ID}"
             echo "RUN_ATTEMPT=${GITHUB_RUN_ATTEMPT}"
-            echo "RUNTIME_GATE=PASS_API_23_35_36"
+            echo "RUNTIME_GATE=PASS_API_23_35_37"
             echo "MIN_SDK=23"
-            echo "TARGET_SDK=36"
+            echo "TARGET_SDK=37"
             echo "R8_MINIFY=ENABLED"
             echo "RESOURCE_SHRINK=ENABLED"
             echo "SIGNED=YES"

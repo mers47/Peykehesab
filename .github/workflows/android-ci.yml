@@ -55,7 +55,7 @@ jobs:
           if [[ -z "$SDKMANAGER" ]]; then SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"; fi
           test -x "$SDKMANAGER"
           yes | "$SDKMANAGER" --licenses >/dev/null || true
-          "$SDKMANAGER" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+          "$SDKMANAGER" "platform-tools" "platforms;android-37.0" "build-tools;36.0.0"
 
       - name: تست واحد، Lint، تحلیل R8 و Build کامل
         shell: bash
