@@ -192,6 +192,7 @@ class RepositoryIntegrationTest {
         assertTrue(rows.any { it.order.id == protectedOrder.id })
         assertTrue(rows.none { it.order.id == extraOrder.id })
         file.delete()
+        Unit
     }
 
 }
