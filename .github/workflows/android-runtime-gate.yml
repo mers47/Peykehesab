@@ -75,7 +75,10 @@ jobs:
             "platforms;android-37.0" \
             "build-tools;36.0.0" \
             "system-images;android-${{ matrix.sdk-level }};google_apis;x86_64"
-          echo no | "$AVDMANAGER" create avd \
+          AVD_HOME="$RUNNER_TEMP/avd"
+          mkdir -p "$AVD_HOME"
+          echo "ANDROID_AVD_HOME=$AVD_HOME" >> "$GITHUB_ENV"
+          echo no | ANDROID_AVD_HOME="$AVD_HOME" "$AVDMANAGER" create avd \
             --force \
             --name "peykhesab-ci-${{ matrix.api-level }}" \
             --package "system-images;android-${{ matrix.sdk-level }};google_apis;x86_64"
@@ -88,15 +91,28 @@ jobs:
         run: |
           set -Eeuo pipefail
           adb start-server
+          export ANDROID_AVD_HOME="${ANDROID_AVD_HOME:-$RUNNER_TEMP/avd}"
+          echo "ANDROID_AVD_HOME=$ANDROID_AVD_HOME"
+          echo "HOME=$HOME"
+          ls -la "$ANDROID_AVD_HOME/"
+          "$ANDROID_HOME/emulator/emulator" -list-avds
+          test -f "$ANDROID_AVD_HOME/peykhesab-ci-${{ matrix.api-level }}.ini"
           "$ANDROID_HOME/emulator/emulator" \
             -avd "peykhesab-ci-${{ matrix.api-level }}" \
             -no-window -no-audio -no-boot-anim -no-snapshot \
+            -netfast -accel auto \
             -gpu swiftshader_indirect -memory 4096 \
             > "$RUNNER_TEMP/emulator-${{ matrix.api-level }}.log" 2>&1 &
-          adb wait-for-device
+          EMU_PID=$!
+          timeout 300 adb wait-for-device
           for _ in {1..180}; do
             if [[ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" == "1" ]]; then
               break
+            fi
+            if ! kill -0 "$EMU_PID" 2>/dev/null; then
+              echo "emulator process died" >&2
+              cat "$RUNNER_TEMP/emulator-${{ matrix.api-level }}.log" >&2
+              exit 1
             fi
             sleep 2
           done
