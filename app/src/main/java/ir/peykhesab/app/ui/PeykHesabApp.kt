@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -72,7 +73,8 @@ fun PeykHesabApp(vm: AppViewModel) {
                                 }
                             },
                             icon = { Icon(painterResource(destination.iconRes), destination.title) },
-                            label = { Text(destination.title) }
+                            label = { Text(destination.title) },
+                            modifier = Modifier.testTag("nav-${destination.route}")
                         )
                     }
                 }
