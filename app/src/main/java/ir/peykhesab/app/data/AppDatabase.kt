@@ -1,6 +1,7 @@
 package ir.peykhesab.app.data
 
 import android.content.Context
+import java.io.File
 import androidx.room3.*
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import ir.peykhesab.app.domain.*
@@ -510,11 +511,14 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         private const val DB_NAME = "peykhesab.db"
 
-        fun create(context: Context): AppDatabase =
-            Room.databaseBuilder<AppDatabase>(context.applicationContext, context.applicationContext.getDatabasePath(DB_NAME).absolutePath)
+        fun create(context: Context): AppDatabase {
+            val dbPath = context.applicationContext.getDatabasePath(DB_NAME)
+            dbPath.parentFile?.mkdirs()
+            return Room.databaseBuilder<AppDatabase>(context.applicationContext, dbPath.absolutePath)
                 .setDriver(BundledSQLiteDriver())
                 .setQueryCoroutineContext(Dispatchers.IO)
                 .build()
+        }
     }
 }
 

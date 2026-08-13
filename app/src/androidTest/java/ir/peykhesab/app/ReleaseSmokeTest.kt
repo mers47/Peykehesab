@@ -4,8 +4,11 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import ir.peykhesab.app.domain.Customer
@@ -26,23 +29,24 @@ class ReleaseSmokeTest {
     fun appStartsAndCoreScreensRender() {
         composeRule.onNodeWithText("پیک‌حساب").assertIsDisplayed()
 
-        composeRule.onNodeWithText("سفارش‌ها").performClick()
-        composeRule.onNodeWithText("سفارش‌ها").assertIsDisplayed()
+        composeRule.onNodeWithTag("nav-orders").performClick()
+        composeRule.onAllNodesWithText("سفارش‌ها")[0].assertIsDisplayed()
 
-        composeRule.onNodeWithText("راننده‌ها").performClick()
-        composeRule.onNodeWithText("راننده‌ها").assertIsDisplayed()
+        composeRule.onNodeWithTag("nav-drivers").performClick()
+        composeRule.onAllNodesWithText("راننده‌ها")[0].assertIsDisplayed()
 
-        composeRule.onNodeWithText("مشتریان").performClick()
-        composeRule.onNodeWithText("مشتریان").assertIsDisplayed()
+        composeRule.onNodeWithTag("nav-customers").performClick()
+        composeRule.onAllNodesWithText("مشتریان")[0].assertIsDisplayed()
 
-        composeRule.onNodeWithText("گزارش").performClick()
-        composeRule.onNodeWithText("گزارش‌ها").assertIsDisplayed()
+        composeRule.onNodeWithTag("nav-reports").performClick()
+        composeRule.onAllNodesWithText("گزارش‌ها")[0].assertIsDisplayed()
         composeRule.onNodeWithText("امروز").assertIsDisplayed()
 
-        composeRule.onNodeWithText("خانه").performClick()
+        composeRule.onNodeWithTag("nav-dashboard").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
         composeRule.onNodeWithText("پشتیبان‌گیری و بازیابی").performClick()
         composeRule.onNodeWithText("حفاظت از تمام اطلاعات").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("بازگشت").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
     }
     @Test
@@ -75,7 +79,7 @@ class ReleaseSmokeTest {
         composeRule.onNodeWithTag("neighborhood-picker").assertTextContains(neighborhood.name)
         composeRule.onNodeWithTag("order-amount").assertTextContains("۱۲۳۴۵")
         composeRule.onNodeWithTag("order-notes").assertTextContains("یادداشت چرخش")
-        composeRule.onNodeWithTag("order-submit").assertIsDisplayed()
+        composeRule.onNodeWithTag("order-submit").performScrollTo().assertIsDisplayed()
     }
 
 }
