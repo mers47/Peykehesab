@@ -44,7 +44,7 @@ class ReleaseSmokeTest {
 
         composeRule.onNodeWithTag("nav-dashboard").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
-        composeRule.onNodeWithText("پشتیبان‌گیری و بازیابی").performClick()
+        composeRule.onNodeWithText("پشتیبان‌گیری و بازیابی").performScrollTo().performClick()
         composeRule.onNodeWithText("حفاظت از تمام اطلاعات").assertIsDisplayed()
         composeRule.onNodeWithContentDescription("بازگشت").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
