@@ -3,7 +3,6 @@ package ir.peykhesab.app
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
@@ -27,24 +26,23 @@ class ReleaseSmokeTest {
     fun appStartsAndCoreScreensRender() {
         composeRule.onNodeWithText("پیک‌حساب").assertIsDisplayed()
 
-        composeRule.onNodeWithContentDescription("سفارش‌ها").performClick()
+        composeRule.onNodeWithText("سفارش‌ها").performClick()
         composeRule.onNodeWithText("سفارش‌ها").assertIsDisplayed()
 
-        composeRule.onNodeWithContentDescription("راننده‌ها").performClick()
+        composeRule.onNodeWithText("راننده‌ها").performClick()
         composeRule.onNodeWithText("راننده‌ها").assertIsDisplayed()
 
-        composeRule.onNodeWithContentDescription("مشتریان").performClick()
+        composeRule.onNodeWithText("مشتریان").performClick()
         composeRule.onNodeWithText("مشتریان").assertIsDisplayed()
 
-        composeRule.onNodeWithContentDescription("گزارش").performClick()
+        composeRule.onNodeWithText("گزارش").performClick()
         composeRule.onNodeWithText("گزارش‌ها").assertIsDisplayed()
         composeRule.onNodeWithText("امروز").assertIsDisplayed()
 
-        composeRule.onNodeWithContentDescription("خانه").performClick()
+        composeRule.onNodeWithText("خانه").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
         composeRule.onNodeWithText("پشتیبان‌گیری و بازیابی").performClick()
         composeRule.onNodeWithText("حفاظت از تمام اطلاعات").assertIsDisplayed()
-        composeRule.onNodeWithContentDescription("بازگشت").performClick()
         composeRule.onNodeWithText("ثبت سفارش جدید").assertIsDisplayed()
     }
     @Test
