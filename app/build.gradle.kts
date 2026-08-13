@@ -85,5 +85,9 @@ dependencies {
     androidTestImplementation("androidx.test:core:1.7.0")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:1.7.0")
+    // Explicitly upgrade espresso-core to 3.7.0 which uses getSystemService instead of
+    // reflective InputManager.getInstance() — the latter was removed in API 37 (Android 16+)
+    // causing NoSuchMethodException during touch injection on API 37 emulators.
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
