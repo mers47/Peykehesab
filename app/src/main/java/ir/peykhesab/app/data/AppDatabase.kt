@@ -516,12 +516,9 @@ abstract class AppDatabase : RoomDatabase() {
             val dbPath = appContext.getDatabasePath(DB_NAME)
             // Ensure the databases directory exists — on fresh installs (especially API 37)
             // the /databases/ directory may not exist yet, causing ENOENT on the .lck file.
-            val dbDir = dbPath.parentFile ?: java.io.File(appContext.dataDir, "databases")
-            if (!dbDir.exists()) {
-                dbDir.mkdirs()
-            }
-            // Also ensure via getDir as a fallback (creates /app_databases/ if needed)
+            // getDir("databases", ...) creates the directory if it doesn't exist (works on all API levels).
             appContext.getDir("databases", android.content.Context.MODE_PRIVATE)
+            dbPath.parentFile?.mkdirs()
             return Room.databaseBuilder<AppDatabase>(appContext, dbPath.absolutePath)
                 .setDriver(BundledSQLiteDriver())
                 .setQueryCoroutineContext(Dispatchers.IO)
